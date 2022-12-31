@@ -6,7 +6,6 @@ public class Calculator implements CalculatorInterface {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 GUI calc = new GUI();
-                calc.createAndShowGUI();
             }
         });
     }

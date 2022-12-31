@@ -8,10 +8,10 @@ import javax.swing.plaf.FontUIResource;
 
 public class GUI {
 
-    public void createAndShowGUI() {
+    FontUIResource buttonFont = new FontUIResource("Ariel", FontUIResource.PLAIN, 40);
+    FontUIResource displayFont = new FontUIResource("Ariel", FontUIResource.PLAIN, 60);
 
-        FontUIResource buttonFont = new FontUIResource("Ariel", FontUIResource.PLAIN, 40);
-        FontUIResource displayFont = new FontUIResource("Ariel", FontUIResource.PLAIN, 60);
+    public GUI() {
 
         JFrame frame = new JFrame("Button Example");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -239,5 +239,4 @@ public class GUI {
             }
         });
     }
-
 }
