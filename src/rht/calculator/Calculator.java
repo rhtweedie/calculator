@@ -1,6 +1,6 @@
 package rht.calculator;
 
-public class Calculator implements CalculatorInterface {
+public class Calculator {
 
     String displayText = "";
 
@@ -22,22 +22,18 @@ public class Calculator implements CalculatorInterface {
         return displayText;
     }
 
-    @Override
     public double add(double numberOne, double numberTwo) {
         return numberOne + numberTwo;
     }
 
-    @Override
     public double subtract(double numberOne, double numberTwo) {
         return numberOne - numberTwo;
     }
 
-    @Override
     public double multiply(double numberOne, double numberTwo) {
         return numberOne * numberTwo;
     }
 
-    @Override
     public double divide(double numberOne, double numberTwo) {
         if (numberTwo == 0) {
             return 0;

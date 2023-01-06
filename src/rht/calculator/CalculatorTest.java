@@ -8,7 +8,7 @@ public class CalculatorTest {
 
     @Test
     public void addTest() {
-        CalculatorInterface calculator = new Calculator();
+        Calculator calculator = new Calculator();
 
         double resultOne = calculator.add(0, 0);
         assertEquals(0, resultOne, 0.0000001);
@@ -22,7 +22,7 @@ public class CalculatorTest {
 
     @Test
     public void subtractTest() {
-        CalculatorInterface calculator = new Calculator();
+        Calculator calculator = new Calculator();
 
         double resultOne = calculator.subtract(0, 0);
         assertEquals(0, resultOne, 0.0000001);
@@ -36,7 +36,7 @@ public class CalculatorTest {
 
     @Test
     public void multiplyTest() {
-        CalculatorInterface calculator = new Calculator();
+        Calculator calculator = new Calculator();
 
         double resultOne = calculator.multiply(0, 0);
         assertEquals(0, resultOne, 0.0000001);
@@ -50,7 +50,7 @@ public class CalculatorTest {
 
     @Test
     public void divideTest() {
-        CalculatorInterface calculator = new Calculator();
+        Calculator calculator = new Calculator();
 
         double resultOne = calculator.divide(0, 0);
         assertEquals(0, resultOne, 0.0000001);
