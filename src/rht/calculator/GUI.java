@@ -8,8 +8,10 @@ import javax.swing.plaf.FontUIResource;
 
 public class GUI {
 
-    FontUIResource buttonFont = new FontUIResource("Ariel", FontUIResource.PLAIN, 40);
-    FontUIResource displayFont = new FontUIResource("Ariel", FontUIResource.PLAIN, 60);
+    private final FontUIResource buttonFont = new FontUIResource("Ariel", FontUIResource.PLAIN, 40);
+    private final FontUIResource displayFont = new FontUIResource("Ariel", FontUIResource.PLAIN, 60);
+    String displayText = new String("");
+    JTextField display = new JTextField(16);
 
     public GUI() {
 
@@ -101,7 +103,6 @@ public class GUI {
         buttonEquals.setFont(new FontUIResource(buttonFont));
         frame.add(buttonEquals);
 
-        JTextField display = new JTextField(16);
         display.setFont(displayFont);
         display.setBounds(20, 20, 540, 120);
         display.setEditable(false);
@@ -115,7 +116,7 @@ public class GUI {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                display.setText("1");
+                updateDisplay('1');
             }
         });
 
@@ -123,7 +124,7 @@ public class GUI {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                display.setText("2");
+                updateDisplay('2');
             }
         });
 
@@ -131,7 +132,7 @@ public class GUI {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                display.setText("3");
+                updateDisplay('3');
             }
         });
 
@@ -139,7 +140,7 @@ public class GUI {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                display.setText("4");
+                updateDisplay('4');
             }
         });
 
@@ -147,7 +148,7 @@ public class GUI {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                display.setText("5");
+                updateDisplay('5');
             }
         });
 
@@ -155,7 +156,7 @@ public class GUI {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                display.setText("6");
+                updateDisplay('6');
             }
         });
 
@@ -163,7 +164,7 @@ public class GUI {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                display.setText("7");
+                updateDisplay('7');
             }
         });
 
@@ -171,7 +172,7 @@ public class GUI {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                display.setText("8");
+                updateDisplay('8');
             }
         });
 
@@ -179,7 +180,7 @@ public class GUI {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                display.setText("9");
+                updateDisplay('9');
             }
         });
 
@@ -187,7 +188,7 @@ public class GUI {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                display.setText("0");
+                updateDisplay('0');
             }
         });
 
@@ -227,7 +228,7 @@ public class GUI {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                display.setText(".");
+                updateDisplay('.');
             }
         });
 
@@ -238,5 +239,12 @@ public class GUI {
                 display.setText("");
             }
         });
+    }
+
+    public void updateDisplay(char character) {
+        if (Character.isDigit(character)) {
+            displayText = displayText.concat(String.valueOf(character));
+            display.setText(displayText);
+        }
     }
 }
