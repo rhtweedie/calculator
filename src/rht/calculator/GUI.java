@@ -10,7 +10,7 @@ public class GUI {
 
     private final FontUIResource buttonFont = new FontUIResource("Ariel", FontUIResource.PLAIN, 40);
     private final FontUIResource displayFont = new FontUIResource("Ariel", FontUIResource.PLAIN, 60);
-    String displayText = new String("");
+    private final Calculator calc = new Calculator();
     JTextField display = new JTextField(16);
 
     public GUI() {
@@ -236,15 +236,12 @@ public class GUI {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                display.setText("");
+                updateDisplay('C');
             }
         });
     }
 
-    public void updateDisplay(char character) {
-        if (Character.isDigit(character)) {
-            displayText = displayText.concat(String.valueOf(character));
-            display.setText(displayText);
-        }
+    private void updateDisplay(char buttonPressed) {
+        display.setText(calc.updateDisplay(buttonPressed));
     }
 }
