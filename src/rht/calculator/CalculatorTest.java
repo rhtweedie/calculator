@@ -81,4 +81,18 @@ public class CalculatorTest {
 
         assertEquals("", calc.updateDisplay('C'));
     }
+
+    @Test
+    public void updateDisplayAddTest() {
+        Calculator calc = new Calculator();
+
+        assertEquals("3", calc.updateDisplay('3'));
+
+        assertEquals("3+", calc.updateDisplay('+'));
+
+        assertEquals("3+7", calc.updateDisplay('7'));
+
+        assertEquals("10", calc.updateDisplay('='));
+
+    }
 }
