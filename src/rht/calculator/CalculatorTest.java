@@ -62,4 +62,23 @@ public class CalculatorTest {
         assertEquals(0.3333333333333333, resultThree, 0.0000001);
 
     }
+
+    @Test
+    public void inputThreeDigitsTest() {
+        Calculator calc = new Calculator();
+
+        assertEquals("3", calc.updateDisplay('3'));
+        assertEquals("32", calc.updateDisplay('2'));
+        assertEquals("329", calc.updateDisplay('9'));
+
+    }
+
+    @Test
+    public void clearTest() {
+        Calculator calc = new Calculator();
+
+        assertEquals("3", calc.updateDisplay('3'));
+
+        assertEquals("", calc.updateDisplay('C'));
+    }
 }
