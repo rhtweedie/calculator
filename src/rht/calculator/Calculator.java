@@ -19,6 +19,11 @@ public class Calculator {
         if (buttonPressed == 'C') {
             displayText = "";
         }
+        if (buttonPressed == '.') {
+            if (!displayText.contains(".")) {
+                displayText += buttonPressed;
+            }
+        }
         return displayText;
     }
 
