@@ -3,6 +3,8 @@ package rht.calculator;
 public class Calculator {
 
     String displayText = "";
+    Double numberOne;
+    Double operator;
 
     public static void main(String[] args) {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
@@ -14,15 +16,25 @@ public class Calculator {
 
     public String updateDisplay(char buttonPressed) {
         if (Character.isDigit(buttonPressed)) {
-            displayText = displayText.concat(String.valueOf(buttonPressed));
+            if (displayText.contains("+")) {
+                displayText = "";
+            }
+            displayText += buttonPressed;
         }
         if (buttonPressed == '.') {
             if (!displayText.contains(".")) {
                 displayText += buttonPressed;
             }
         }
+        if (buttonPressed == '+') {
+            numberOne = Double.parseDouble(displayText);
+            displayText += buttonPressed;
+        }
         if (buttonPressed == 'C') {
             displayText = "";
+        }
+        if (buttonPressed == '=') {
+            displayText = String.valueOf(numberOne + Double.parseDouble(displayText));
         }
 
         return displayText;

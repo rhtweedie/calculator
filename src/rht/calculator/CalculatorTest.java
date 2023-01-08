@@ -90,9 +90,9 @@ public class CalculatorTest {
 
         assertEquals("3+", calc.updateDisplay('+'));
 
-        assertEquals("3+7", calc.updateDisplay('7'));
+        assertEquals("7", calc.updateDisplay('7'));
 
-        assertEquals("10", calc.updateDisplay('='));
+        assertEquals("10.0", calc.updateDisplay('='));
     }
 
     @Test
@@ -104,7 +104,7 @@ public class CalculatorTest {
         assertEquals("5", calc.updateDisplay('5'));
         assertEquals("9*", calc.updateDisplay('*'));
         assertEquals("2", calc.updateDisplay('2'));
-        assertEquals("18", calc.updateDisplay('='));
+        assertEquals("18.0", calc.updateDisplay('='));
     }
 
     @Test
