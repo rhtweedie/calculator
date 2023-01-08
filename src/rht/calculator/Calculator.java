@@ -16,14 +16,15 @@ public class Calculator {
         if (Character.isDigit(buttonPressed)) {
             displayText = displayText.concat(String.valueOf(buttonPressed));
         }
-        if (buttonPressed == 'C') {
-            displayText = "";
-        }
         if (buttonPressed == '.') {
             if (!displayText.contains(".")) {
                 displayText += buttonPressed;
             }
         }
+        if (buttonPressed == 'C') {
+            displayText = "";
+        }
+
         return displayText;
     }
 
