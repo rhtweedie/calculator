@@ -93,6 +93,40 @@ public class CalculatorTest {
         assertEquals("3+7", calc.updateDisplay('7'));
 
         assertEquals("10", calc.updateDisplay('='));
+    }
 
+    @Test
+    public void multipleOperationsTest() {
+        Calculator calc = new Calculator();
+
+        assertEquals("4", calc.updateDisplay('4'));
+        assertEquals("4+", calc.updateDisplay('+'));
+        assertEquals("5", calc.updateDisplay('5'));
+        assertEquals("9*", calc.updateDisplay('*'));
+        assertEquals("2", calc.updateDisplay('2'));
+        assertEquals("18", calc.updateDisplay('='));
+    }
+
+    @Test
+    public void adjacentOperatorsTest() {
+        Calculator calc = new Calculator();
+
+        assertEquals("9", calc.updateDisplay('9'));
+        assertEquals("9+", calc.updateDisplay('+'));
+        assertEquals("9+", calc.updateDisplay('+'));
+        assertEquals("9*", calc.updateDisplay('*'));
+        assertEquals("2", calc.updateDisplay('2'));
+        assertEquals("18", calc.updateDisplay('='));
+    }
+
+    @Test
+    public void multipleDecimalPointsTest() {
+        Calculator calc = new Calculator();
+
+        assertEquals("1", calc.updateDisplay('1'));
+        assertEquals("1.", calc.updateDisplay('.'));
+        assertEquals("1.", calc.updateDisplay('.'));
+        assertEquals("1.2", calc.updateDisplay('2'));
+        assertEquals("1.2", calc.updateDisplay('.'));
     }
 }
