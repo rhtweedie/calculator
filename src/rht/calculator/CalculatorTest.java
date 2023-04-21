@@ -102,7 +102,7 @@ public class CalculatorTest {
         assertEquals("4", calc.updateDisplay('4'));
         assertEquals("4+", calc.updateDisplay('+'));
         assertEquals("5", calc.updateDisplay('5'));
-        assertEquals("9*", calc.updateDisplay('*'));
+        assertEquals("9.0*", calc.updateDisplay('*'));
         assertEquals("2", calc.updateDisplay('2'));
         assertEquals("18.0", calc.updateDisplay('='));
     }
@@ -114,7 +114,7 @@ public class CalculatorTest {
         assertEquals("4", calc.updateDisplay('4'));
         assertEquals("4+", calc.updateDisplay('+'));
         assertEquals("5", calc.updateDisplay('5'));
-        assertEquals("9+", calc.updateDisplay('+'));
+        assertEquals("9.0+", calc.updateDisplay('+'));
         assertEquals("2", calc.updateDisplay('2'));
         assertEquals("11.0", calc.updateDisplay('='));
     }
@@ -126,9 +126,9 @@ public class CalculatorTest {
         assertEquals("9", calc.updateDisplay('9'));
         assertEquals("9+", calc.updateDisplay('+'));
         assertEquals("9+", calc.updateDisplay('+'));
-        assertEquals("9*", calc.updateDisplay('*'));
+        assertEquals("9.0*", calc.updateDisplay('*'));
         assertEquals("2", calc.updateDisplay('2'));
-        assertEquals("18", calc.updateDisplay('='));
+        assertEquals("18.0", calc.updateDisplay('='));
     }
 
     @Test
