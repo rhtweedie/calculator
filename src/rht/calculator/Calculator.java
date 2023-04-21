@@ -32,7 +32,7 @@ public class Calculator {
                 if (!displayText.contains("+") && !displayText.contains("-") && !displayText.contains("*")
                         && !displayText.contains("/")) {
                     if (operator != null) {
-                        numberOne += Double.parseDouble(displayText);
+                        numberOne = operate(numberOne, displayText, operator);
                         displayText = String.valueOf(numberOne) + buttonPressed;
                     } else {
                         numberOne = Double.parseDouble(displayText);
@@ -49,6 +49,24 @@ public class Calculator {
                 break;
         }
         return displayText;
+    }
+
+    private Double operate(Double number, String text, char operation) {
+        double numberTwo = Double.parseDouble(text);
+        switch (operation) {
+            case '+':
+                return number + numberTwo;
+            case '-':
+                return number - numberTwo;
+            case '*':
+                return number * numberTwo;
+            case '/':
+                if (numberTwo == 0) {
+                    return 0.0;
+                }
+                return number / numberTwo;
+        }
+        return null;
     }
 
     public double add(double numberOne, double numberTwo) {
