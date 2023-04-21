@@ -29,8 +29,8 @@ public class Calculator {
                 }
                 break;
             case '+':
-                if (!displayText.contains("+") || !displayText.contains("-") || !displayText.contains("*")
-                        || !displayText.contains("/")) {
+                if (!displayText.contains("+") && !displayText.contains("-") && !displayText.contains("*")
+                        && !displayText.contains("/")) {
                     if (operator != null) {
                         numberOne += Double.parseDouble(displayText);
                         displayText = String.valueOf(numberOne) + buttonPressed;
