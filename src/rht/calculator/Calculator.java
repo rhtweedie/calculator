@@ -4,7 +4,7 @@ public class Calculator {
 
     String displayText = "";
     Double numberOne;
-    Double operator;
+    Character operator = null;
 
     public static void main(String[] args) {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
@@ -21,22 +21,33 @@ public class Calculator {
             }
             displayText += buttonPressed;
         }
-        if (buttonPressed == '.') {
-            if (!displayText.contains(".")) {
-                displayText += buttonPressed;
-            }
-        }
-        if (buttonPressed == '+') {
-            numberOne = Double.parseDouble(displayText);
-            displayText += buttonPressed;
-        }
-        if (buttonPressed == 'C') {
-            displayText = "";
-        }
-        if (buttonPressed == '=') {
-            displayText = String.valueOf(numberOne + Double.parseDouble(displayText));
-        }
 
+        switch (buttonPressed) {
+            case '.':
+                if (!displayText.contains(".")) {
+                    displayText += buttonPressed;
+                }
+                break;
+            case '+':
+                if (!displayText.contains("+") || !displayText.contains("-") || !displayText.contains("*")
+                        || !displayText.contains("/")) {
+                    if (operator != null) {
+                        numberOne += Double.parseDouble(displayText);
+                        displayText = String.valueOf(numberOne) + buttonPressed;
+                    } else {
+                        numberOne = Double.parseDouble(displayText);
+                        displayText += buttonPressed;
+                    }
+                    operator = buttonPressed;
+                }
+                break;
+            case 'C':
+                displayText = "";
+                break;
+            case '=':
+                displayText = String.valueOf(numberOne + Double.parseDouble(displayText));
+                break;
+        }
         return displayText;
     }
 
