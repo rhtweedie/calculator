@@ -16,7 +16,8 @@ public class Calculator {
 
     public String updateDisplay(char buttonPressed) {
         if (Character.isDigit(buttonPressed)) {
-            if (displayText.contains("+")) {
+            if (displayText.contains("+") || displayText.contains("-") || displayText.contains("*")
+                    || displayText.contains("/")) {
                 displayText = "";
             }
             displayText += buttonPressed;
@@ -29,6 +30,9 @@ public class Calculator {
                 }
                 break;
             case '+':
+            case '-':
+            case '/':
+            case '*':
                 if (!displayText.contains("+") && !displayText.contains("-") && !displayText.contains("*")
                         && !displayText.contains("/")) {
                     if (operator != null) {
