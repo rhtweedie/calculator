@@ -126,7 +126,7 @@ public class CalculatorTest {
         assertEquals("9", calc.updateDisplay('9'));
         assertEquals("9+", calc.updateDisplay('+'));
         assertEquals("9+", calc.updateDisplay('+'));
-        assertEquals("9.0*", calc.updateDisplay('*'));
+        assertEquals("9*", calc.updateDisplay('*'));
         assertEquals("2", calc.updateDisplay('2'));
         assertEquals("18.0", calc.updateDisplay('='));
     }

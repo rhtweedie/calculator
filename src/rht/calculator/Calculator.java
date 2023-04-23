@@ -42,8 +42,10 @@ public class Calculator {
                         numberOne = Double.parseDouble(displayText);
                         displayText += buttonPressed;
                     }
-                    operator = buttonPressed;
+                } else {
+                    displayText = displayText.substring(0, displayText.length() - 1) + buttonPressed;
                 }
+                operator = buttonPressed;
                 break;
             case 'C':
                 displayText = "";
