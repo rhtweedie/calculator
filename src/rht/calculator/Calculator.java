@@ -16,9 +16,9 @@ public class Calculator {
 
     public String updateDisplay(char buttonPressed) {
         if (Character.isDigit(buttonPressed)) {
-            if (displayText.contains("+") || displayText.contains("-") || displayText.contains("*")
-                    || displayText.contains("/")) {
+            if (containsOperator(displayText)) {
                 displayText = "";
+
             }
             displayText += buttonPressed;
         }
@@ -33,8 +33,7 @@ public class Calculator {
             case '-':
             case '/':
             case '*':
-                if (!displayText.contains("+") && !displayText.contains("-") && !displayText.contains("*")
-                        && !displayText.contains("/")) {
+                if (!containsOperator(displayText)) {
                     if (operator != null) {
                         numberOne = operate(numberOne, displayText, operator);
                         displayText = String.valueOf(numberOne) + buttonPressed;
@@ -60,7 +59,12 @@ public class Calculator {
         return displayText;
     }
 
-    private Double operate(Double number, String text, char operation) {
+    private static boolean containsOperator(String displayText) {
+        return (displayText.contains("+") || displayText.contains("-") || displayText.contains("*")
+                || displayText.contains("/"));
+    }
+
+    private static Double operate(Double number, String text, char operation) {
         double numberTwo = Double.parseDouble(text);
         switch (operation) {
             case '+':
