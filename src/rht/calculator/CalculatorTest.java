@@ -99,4 +99,19 @@ public class CalculatorTest {
         assertEquals("4", calc.updateDisplay('4'));
         assertEquals("7.0", calc.updateDisplay('='));
     }
+
+    @Test
+    public void weirdBugTest() {
+        Calculator calc = new Calculator();
+
+        assertEquals("1", calc.updateDisplay('1'));
+        assertEquals("12", calc.updateDisplay('2'));
+        assertEquals("12/", calc.updateDisplay('/'));
+        assertEquals("3", calc.updateDisplay('3'));
+        assertEquals("4.0", calc.updateDisplay('='));
+        assertEquals("4", calc.updateDisplay('4'));
+        assertEquals("4*", calc.updateDisplay('*'));
+        assertEquals("3", calc.updateDisplay('3'));
+        assertEquals("12.0", calc.updateDisplay('='));
+    }
 }

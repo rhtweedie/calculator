@@ -5,6 +5,7 @@ public class Calculator {
     String displayText = "";
     Double numberOne;
     Character operator = null;
+    boolean pressedEquals = false;
 
     public static void main(String[] args) {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
@@ -16,18 +17,24 @@ public class Calculator {
 
     public String updateDisplay(char buttonPressed) {
         if (Character.isDigit(buttonPressed)) {
+            if (pressedEquals) {
+                reset();
+            }
             if (containsOperator(displayText)) {
                 displayText = "";
-
             }
             displayText += buttonPressed;
         }
 
         switch (buttonPressed) {
             case '.':
+                if (pressedEquals) {
+                    reset();
+                }
                 if (!displayText.contains(".")) {
                     displayText += buttonPressed;
                 }
+                pressedEquals = false;
                 break;
             case '+':
             case '-':
@@ -45,19 +52,26 @@ public class Calculator {
                     displayText = displayText.substring(0, displayText.length() - 1) + buttonPressed;
                 }
                 operator = buttonPressed;
+                pressedEquals = false;
                 break;
             case 'C':
-                displayText = "";
-                numberOne = null;
-                operator = null;
+                reset();
                 break;
             case '=':
                 numberOne = operate(numberOne, displayText, operator);
                 displayText = String.valueOf(numberOne);
                 operator = null;
+                pressedEquals = true;
                 break;
         }
         return displayText;
+    }
+
+    private void reset() {
+        displayText = "";
+        numberOne = null;
+        operator = null;
+        pressedEquals = false;
     }
 
     private static boolean containsOperator(String displayText) {
