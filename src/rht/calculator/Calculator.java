@@ -43,6 +43,8 @@ public class Calculator {
                 break;
             case 'C':
                 displayText = "";
+                numberOne = null;
+                operator = null;
                 break;
             case '=':
                 displayText = String.valueOf(numberOne + Double.parseDouble(displayText));

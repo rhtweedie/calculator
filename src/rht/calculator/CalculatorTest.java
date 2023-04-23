@@ -141,4 +141,19 @@ public class CalculatorTest {
         assertEquals("1.2", calc.updateDisplay('2'));
         assertEquals("1.2", calc.updateDisplay('.'));
     }
+
+    @Test
+    public void addClearAddTest() {
+        Calculator calc = new Calculator();
+
+        assertEquals("1", calc.updateDisplay('1'));
+        assertEquals("1+", calc.updateDisplay('+'));
+        assertEquals("1", calc.updateDisplay('1'));
+        assertEquals("2.0", calc.updateDisplay('='));
+        assertEquals("", calc.updateDisplay('C'));
+        assertEquals("3", calc.updateDisplay('3'));
+        assertEquals("3+", calc.updateDisplay('+'));
+        assertEquals("4", calc.updateDisplay('4'));
+        assertEquals("7.0", calc.updateDisplay('='));
+    }
 }
