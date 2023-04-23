@@ -51,7 +51,8 @@ public class Calculator {
                 operator = null;
                 break;
             case '=':
-                displayText = String.valueOf(numberOne + Double.parseDouble(displayText));
+                numberOne = operate(numberOne, displayText, operator);
+                displayText = String.valueOf(numberOne);
                 break;
         }
         return displayText;
