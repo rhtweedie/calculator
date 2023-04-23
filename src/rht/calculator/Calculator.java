@@ -54,6 +54,7 @@ public class Calculator {
             case '=':
                 numberOne = operate(numberOne, displayText, operator);
                 displayText = String.valueOf(numberOne);
+                operator = null;
                 break;
         }
         return displayText;
